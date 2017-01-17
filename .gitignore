@@ -1,0 +1,8 @@
+*.awcache
+*.idea
+*.vagrant
+
+ice
+node_modules
+
+src/slices/*.js
