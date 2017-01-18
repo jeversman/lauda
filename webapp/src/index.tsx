@@ -5,19 +5,20 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // injectTapEventPlugin();
 
 import {createStore, applyMiddleware} from 'redux';
-// import createSagaMiddleware from 'redux-saga';
-// import rootSaga from './sagas';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
 
 import rootReducer from './reducers';
 import App from './components/App';
 
-// const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-    rootReducer
+    rootReducer,
+    applyMiddleware(sagaMiddleware)
 );
 
-// sagaMiddleware.run(rootSaga as any);
+sagaMiddleware.run(rootSaga as any);
 
 ReactDOM.render(
     <Provider store={store}>
