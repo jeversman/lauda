@@ -5,23 +5,8 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 interface NewProfileFormProps {
-    params: any[];
+    parameters: any[];
 }
-
-// const inputParam = (props) => (
-//     <TextField
-//         name={props.name}
-//         hintText={props.title}
-//         floatingLabelText={props.title}
-//         type={props.type}
-//         style={{
-//             width: '25%',
-//         }}
-//         {...props.input}
-//     />
-
-// floatingLabelText={props.title.substr(0, 30)}  floatingLabelText={props.title} floatingLabelFixed={true}
-// );
 
 const inputParam = (props) => (
     <TextField
@@ -37,8 +22,8 @@ const inputParam = (props) => (
 
 const divStyle = {
     overflow: 'hidden',
-    width: '40%'
-}
+    width: '40%',
+};
 
 class NewProfileForm extends Component<NewProfileFormProps, {}> {
 
@@ -48,10 +33,10 @@ class NewProfileForm extends Component<NewProfileFormProps, {}> {
         return (
             <form onSubmit={handleSubmit}>
                 {
-                    this.props.params.map(function(param) {
+                    this.props.parameters.map(function(parameter) {
                         return (
-                            <div key={param.name} style={divStyle}>
-                                <Field component={inputParam} {...param} />
+                            <div key={parameter.name} style={divStyle}>
+                                <Field component={inputParam} {...parameter} />
                             </div>
                         );
                     })

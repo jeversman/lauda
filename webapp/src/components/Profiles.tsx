@@ -8,7 +8,7 @@ import * as profileActions from '../actions/profiles.actions';
 interface ProfilesProps {
     profiles: any[];
     getProfiles();
-    deleteProfile(profileName: string);
+    deleteProfile();
 }
 
 const styles = {
@@ -22,9 +22,6 @@ class Profiles extends Component<ProfilesProps, {}> {
     }
 
     render() {
-
-        console.log('RENDER METHOD OF PROFILES COMPONENT CALLED');
-
         return (
 
             <div>
@@ -43,10 +40,9 @@ class Profiles extends Component<ProfilesProps, {}> {
     }
 }
 
-// FIXME "mainReducer"
 function mapStateToProps(state) {
     return {
-        profiles: state.mainReducer.profiles,
+        profiles: state.profiles.profiles,
     };
 }
 

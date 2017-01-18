@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "jsx": "preserve",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "*": [
+        "*",
+        "../custom_typings/*"
+      ],
+      "history": ["../node_modules/typings-history/history"],
+      "material-ui": ["../node_modules/typed-material-ui"],
+      "material-ui/*": ["../node_modules/typed-material-ui/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

@@ -1,13 +1,26 @@
 import {Component} from 'react';
 import {Router, Route, hashHistory, Redirect} from 'react-router';
 
-import NewProfile from "./NewProfile";
+// import NewProfile from "./NewProfile";
 import Profiles from "./Profiles";
-import Accounts from "./Accounts";
+import data from 'test.json';
 
 interface AppProps {};
 
 export default class App extends Component<AppProps, {}> {
+
+    constructor(props) {
+        super(props);
+
+        this.testWriting();
+    }
+
+    testWriting() {
+
+
+
+    }
+
     // render() {
     //     return (
     //         <div>
@@ -21,11 +34,30 @@ export default class App extends Component<AppProps, {}> {
     //     );
     // }
 
+    // render() {
+    //     return (
+    //         <div>
+    //             <Router history={hashHistory}>
+    //                 <Route path="/Profiles" component={Profiles}></Route>
+    //                 <Redirect from="/" to="/Profiles"/>
+    //             </Router>
+    //         </div>
+    //     );
+    // }
+
     render() {
-        console.log('Hello, hello');
         return (
+
             <div>
-                Hello, it's lauda
+                <h1> Hello, it's Lauda </h1>
+
+                {
+                    data.data.map(function(item) {
+                        return (
+                            <h3> {item} </h3>
+                        );
+                    })
+                }
             </div>
         );
     }

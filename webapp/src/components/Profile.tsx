@@ -2,11 +2,10 @@ import {Component, } from 'react';
 import {Card, CardHeader, CardText, CardActions} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-// TODO add type for profilesData
 interface ProfileProps {
     name: string;
     profileData: any;
-    deleteProfile(name: string);
+    deleteProfile({});
 }
 
 const styles = {
@@ -52,7 +51,7 @@ export class Profile extends Component<ProfileProps, {}> {
                         }
 
                         <CardActions style={actionsStyles}>
-                            <RaisedButton label="Delete" onClick={() => this.props.deleteProfile(this.props.name)}></RaisedButton>
+                            <RaisedButton label="Delete" onClick={() => this.props.deleteProfile({profileName: this.props.name})}></RaisedButton>
                         </CardActions>
 
                     </CardText>

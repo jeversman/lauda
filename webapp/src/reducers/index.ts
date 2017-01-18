@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 
-import mainReducer from './mainReducer';
+import profiles from './profiles';
+import accounts from './accounts';
 
 const rootReducer = combineReducers({
-    mainReducer: mainReducer,
+    profiles,
+    accounts,
     form: formReducer,
 });
 

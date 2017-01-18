@@ -1,11 +1,12 @@
 {
-  "name": "lauda",
+  "name": "pgen",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --watch-poll",
     "build:development": "NODE_ENV=development webpack",
-    "build:production": "NODE_ENV=production webpack"
+    "build:production": "NODE_ENV=production webpack",
+    "update-slices": "./node_modules/slice2js/bin/slice2js-cli.js --output-dir ./src/slices ice/*.ice"
   },
   "devDependencies": {
     "awesome-typescript-loader": "2.2.4",
@@ -42,6 +43,7 @@
     "babel-polyfill": "6.16.0",
     "history": "4.4.1",
     "inline-style-prefixer": "2.0.5",
+    "jsonfile": "^2.4.0",
     "jwt-decode": "2.1.0",
     "lodash": "4.17.2",
     "material-ui": "0.16.4",

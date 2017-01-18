@@ -1,0 +1,18 @@
+# The most common configuration options are documented and commented below.
+# For a complete reference, please see the online documentation at
+# https://docs.vagrantup.com.
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.network "forwarded_port", guest: 24285, host: 24285
+  config.vm.network "forwarded_port", guest: 24286, host: 24286
+  config.vm.network "forwarded_port", guest: 5063, host: 5063
+  config.vm.network "forwarded_port", guest: 4064, host: 4064
+  config.vm.network "forwarded_port", guest: 10002, host: 10002
+  config.vm.network "forwarded_port", guest: 10001, host: 10001
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+  end
+end
