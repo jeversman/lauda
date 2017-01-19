@@ -1,8 +1,10 @@
 var socketIO = require('socket.io');
+var jsonfile = require('jsonfile');
 
 main();
 function main() {
     startServer();
+    // test();
 }
 
 function startServer() {
@@ -17,11 +19,27 @@ function startServer() {
 }
 
 function subscribe(socket) {
-    socket.on('updatePersons', (data) => {
-        console.log(data);
+    socket.on('getPersons', () => {
+        sendPersons(socket);
     });
 }
 
-function updatePersons(persons) {
-    
+function sendPersons(socket) {
+    jsonfile.readFile('./data.json', (err, obj) => {
+        console.log('Server sends persons');
+        console.log(obj.persons);
+        socket.emit('persons', obj.persons);
+    });
+}
+
+// function getPersons(cb) {
+//     var persons = [];
+//     jsonfile.readFile('./data.json', (err, obj) => {
+//         console.log(obj.persons);
+//         // persons = obj.persons;
+//     });
+// }
+
+function test() {
+    getPersons();
 }
