@@ -3,7 +3,7 @@ import {Router, Route, hashHistory, Redirect} from 'react-router';
 
 import NewProfile from "./NewPerson";
 import Standings from "./Standings";
-import data from 'test.json';
+import data from 'data.json';
 
 
 interface AppProps {};

@@ -1,5 +1,27 @@
-// import {takeEvery} from 'redux-saga';
-// import {call, put} from 'redux-saga/effects';
+import {SagaIterator, takeEvery} from 'redux-saga';
+import {call, put} from 'redux-saga/effects';
+import io from 'socket.io-client';
+
+let _socket: any = {};
+
+export default function* personsSaga(): SagaIterator {
+    yield call(createConnection);
+    yield call(subscribe);
+}
+
+function createConnection() {
+    console.log('CREATE CONNECTION');
+    _socket = io(`${location.protocol}//${location.hostname}:8090`);
+}
+
+function subscribe() {
+    _socket.on('hello', () => {
+        console.log('Hello received from server, great!');
+    });
+}
+
+
+
 // import {connectionEstablished} from '../actions/connection.actions';
 //
 // import {deleteNeedlessParameters} from '../utils/profiles';
@@ -35,13 +57,8 @@
 //     yield call(getProfiles);
 // }
 //
-// export default function* profileSaga(): any {
-//     yield takeEvery(connectionEstablished.type, createRouterSessionSaga);
-//     yield takeEvery(createProfile.type, createProfileSaga);
-//     yield takeEvery(deleteProfile.type, deleteProfileSaga);
-// }
-//
-// send(socket) {
+
+// function send(socket) {
 //     console.log('Send update msg');
 //     socket.emit('updatePersons', data);
 // }
