@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import {NavigationBar} from './NavigationBar';
 import NewProfileForm from './NewPersonForm';
-import * as profileActions from '../actions/profiles.actions';
+import * as profileActions from '../actions/persons.actions';
 import parameters from '../../configs/ui.json';
 import {createParametersConfig} from '../utils/parametersConfig';
 

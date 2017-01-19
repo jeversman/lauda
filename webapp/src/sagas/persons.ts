@@ -2,11 +2,23 @@ import {SagaIterator, takeEvery} from 'redux-saga';
 import {call, put} from 'redux-saga/effects';
 import io from 'socket.io-client';
 
+import {getPersonsService} from 'services/persons';
+import {getPersons, addPersons} from '../actions/persons.actions';
+
 let _socket: any = {};
 
 export default function* personsSaga(): SagaIterator {
     yield call(createConnection);
     yield call(subscribe);
+    yield call(getPersonsSaga);
+    yield takeEvery(getPersons.type, getPersonsSaga);
+}
+
+function* getPersonsSaga() {
+    console.log('GET PERSONS SAGA');
+
+    let persons = yield call(getPersonsService, _socket);
+    yield put(addPersons({persons}));
 }
 
 function createConnection() {
@@ -20,13 +32,11 @@ function subscribe() {
     });
 }
 
-
-
 // import {connectionEstablished} from '../actions/connection.actions';
 //
 // import {deleteNeedlessParameters} from '../utils/profiles';
 //
-// import {addProfiles, createProfile, deleteProfile} from '../actions/profiles.actions.ts';
+
 //
 // export function* getProfiles(): any {
 //     const pgen: PGen.ProfileDBPrx = yield call(getPGen);

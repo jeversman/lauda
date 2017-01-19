@@ -1,14 +1,14 @@
 import {isType} from 'redux-typescript-actions';
-import {addProfiles} from '../actions/profiles.actions';
+import {addPersons} from '../actions/persons.actions';
 
 const initialState = {
-    profiles: [],
+    persons: [],
 };
 
 export default function (state = initialState, action) {
-    if (isType(action, addProfiles)) {
+    if (isType(action, addPersons )) {
         return Object.assign({}, state, {
-            profiles: action.payload.profiles,
+            persons: action.payload.persons,
         });
     }
 

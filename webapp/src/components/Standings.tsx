@@ -3,23 +3,13 @@ import {connect} from 'react-redux';
 
 import {NavigationBar} from './NavigationBar';
 import {Profile} from './Profile';
-import * as profileActions from '../actions/profiles.actions';
-
-interface ProfilesProps {
-    profiles: any[];
-    getProfiles();
-    deleteProfile();
-}
+import * as profileActions from '../actions/persons.actions';
 
 const styles = {
     margin: '15px',
 };
 
-class Profiles extends Component<ProfilesProps, {}> {
-    
-    getProfiles() {
-        this.props.getProfiles();
-    }
+class Standings extends Component {
 
     render() {
         return (
@@ -28,10 +18,12 @@ class Profiles extends Component<ProfilesProps, {}> {
                 <NavigationBar/>
 
                 <div style={styles}>
-                    <h1> Profiles </h1>
+                    <h1> Persons </h1>
                     {
-                        this.props.profiles.map((profile) => {
-                            return <Profile key={profile.name} name={profile.name} profileData={profile.data} deleteProfile={this.props.deleteProfile}/>;
+                        this.props.persons.map((person) => {
+                            return (
+                                <span> <b> {person.name} </b> <br/><br/> </span>
+                            );
                         })
                     }
                 </div>
@@ -42,11 +34,11 @@ class Profiles extends Component<ProfilesProps, {}> {
 
 function mapStateToProps(state) {
     return {
-        profiles: state.profiles.profiles,
+        persons: state.persons.persons,
     };
 }
 
 export default connect(
     mapStateToProps,
     profileActions
-)(Profiles);
+)(Standings);
