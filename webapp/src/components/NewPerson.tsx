@@ -1,30 +1,32 @@
 import {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {NavigationBar} from './NavigationBar';
-import NewProfileForm from './NewPersonForm';
-import * as profileActions from '../actions/persons.actions';
-import parameters from '../../configs/ui.json';
-import {createParametersConfig} from '../utils/parametersConfig';
-
-interface NewProfileProps {
-    createProfile({});
-}
+import NewPersonForm from './NewPersonForm';
+// import * as profileActions from '../actions/persons.actions';
+import data from 'configs/person.config.json';
 
 const styles = {
     margin: '15px',
 };
 
-class NewProfile extends Component<NewProfileProps, {}> {
-    data: any = {parameters: createParametersConfig(parameters)};
+class NewProfile extends Component {
+
+    // render() {
+    //     return (
+    //         <div>
+    //             <NavigationBar/>
+    //             <div style={styles}>
+    //                 <NewProfileForm.form onSubmit={(person) => this.props.createProfile({profile: profile})} {...data} />
+    //             </div>
+    //         </div>
+    //     );
+    // }
 
     render() {
         return (
             <div>
-                <NavigationBar/>
                 <div style={styles}>
-                    <h1> New Profile </h1>
-                    <NewProfileForm.form onSubmit={(profile) => this.props.createProfile({profile: profile})} {...this.data} />
+                    <NewPersonForm.form {...data} />
                 </div>
             </div>
         );
@@ -36,7 +38,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(
-    mapStateToProps,
-    profileActions
+    mapStateToProps
 )(NewProfile);
 

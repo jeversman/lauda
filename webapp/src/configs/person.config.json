@@ -1,0 +1,10 @@
+{
+  "parameters": [
+    "defense",
+    "shot",
+    "shot3pt",
+    "speed",
+    "assist",
+    "mind"
+  ]
+}

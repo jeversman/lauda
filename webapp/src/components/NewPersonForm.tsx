@@ -4,19 +4,15 @@ import {reduxForm, Field} from 'redux-form';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-interface NewProfileFormProps {
-    parameters: any[];
-}
-
-const inputParam = (props) => (
+const inputParam = (prop) => (
     <TextField
-        name={props.name}
-        floatingLabelText={props.title}
-        type={props.type}
+        name={prop.parameter}
+        floatingLabelText={prop.parameter}
+        type="number"
         style={{
             width: '100%',
         }}
-        {...props.input}
+        {...prop.input}
     />
 );
 
@@ -25,7 +21,7 @@ const divStyle = {
     width: '40%',
 };
 
-class NewProfileForm extends Component<NewProfileFormProps, {}> {
+class NewProfileForm extends Component {
 
     render() {
         const { handleSubmit } = this.props;
@@ -35,8 +31,8 @@ class NewProfileForm extends Component<NewProfileFormProps, {}> {
                 {
                     this.props.parameters.map(function(parameter) {
                         return (
-                            <div key={parameter.name} style={divStyle}>
-                                <Field component={inputParam} {...parameter} />
+                            <div key={parameter} style={divStyle}>
+                                <Field component={inputParam} {parameter} />
                             </div>
                         );
                     })
