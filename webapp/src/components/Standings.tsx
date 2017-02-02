@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {RaisedButton, FlatButton, Dialog} from 'material-ui';
@@ -11,20 +11,12 @@ const styles = {
     margin: '15px',
 };
 
-const paperStyle = {
-    height: 100,
-    width: 100,
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block',
-};
-
 class Standings extends Component {
 
     state = {isNewPersonButtonClicked: false};
 
-    handleOpen = () => {this.setState({isNewPersonButtonClicked: true});};
-    handleClose = () => {this.setState({isNewPersonButtonClicked: false});};
+    handleOpen = () => {this.setState({isNewPersonButtonClicked: true}); };
+    handleClose = () => {this.setState({isNewPersonButtonClicked: false}); };
 
     render() {
 
@@ -56,14 +48,7 @@ class Standings extends Component {
                         })
                     }
 
-                    <Dialog
-                        title="Create New Person"
-                        actions={actions}
-                        modal={true}
-                        open={this.state.isNewPersonButtonClicked}
-                    >
-                        <NewPerson/>
-                    </Dialog>
+                    <NewPerson open={this.state.isNewPersonButtonClicked} actions={actions} />
 
                 </div>
 

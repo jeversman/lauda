@@ -2,37 +2,39 @@ import {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import {RaisedButton, } from 'material-ui';
 
-const inputParam = (prop) => (
-    <TextField
-        name={prop.parameter}
-        floatingLabelText={prop.parameter}
-        type="number"
-        style={{
-            width: '100%',
-        }}
-        {...prop.input}
-    />
-);
+const inputParam = (props) => {
+    return (
+        <TextField
+            floatingLabelText={props.fieldName}
+            type={props.type}
+            style={{
+                width: '100%',
+            }}
+            {...props.input}
+        />
+    );
+};
 
 const divStyle = {
     overflow: 'hidden',
     width: '40%',
 };
 
-class NewProfileForm extends Component {
+
+class NewPersonForm extends Component {
 
     render() {
-        const { handleSubmit } = this.props;
+        const {handleSubmit} = this.props;
 
         return (
             <form onSubmit={handleSubmit}>
                 {
                     this.props.parameters.map(function(parameter) {
                         return (
-                            <div key={parameter} style={divStyle}>
-                                <Field component={inputParam} {parameter} />
+                            <div key={parameter.fieldName} style={divStyle}>
+                                <Field component={inputParam} {...parameter} name={parameter.fieldName}/>
                             </div>
                         );
                     })
@@ -46,10 +48,10 @@ class NewProfileForm extends Component {
     }
 }
 
-const NewProfile = reduxForm(
+const NewPerson = reduxForm(
     {
         form: 'newProfile',
     }
-)(NewProfileForm);
+)(NewPersonForm);
 
-export default {form: NewProfile};
+export default {form: NewPerson};

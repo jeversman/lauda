@@ -2,33 +2,22 @@ import {Component} from 'react';
 import {connect} from 'react-redux';
 
 import NewPersonForm from './NewPersonForm';
-// import * as profileActions from '../actions/persons.actions';
-import data from 'configs/person.config.json';
-
-const styles = {
-    margin: '15px',
-};
+import {Dialog, } from 'material-ui';
+import parameters from 'configs/person.config.json';
+import * as personsActions from 'actions/persons.actions';
 
 class NewProfile extends Component {
-
-    // render() {
-    //     return (
-    //         <div>
-    //             <NavigationBar/>
-    //             <div style={styles}>
-    //                 <NewProfileForm.form onSubmit={(person) => this.props.createProfile({profile: profile})} {...data} />
-    //             </div>
-    //         </div>
-    //     );
-    // }
-
     render() {
+        const {open, actions} = this.props;
         return (
-            <div>
-                <div style={styles}>
-                    <NewPersonForm.form {...data} />
-                </div>
-            </div>
+            <Dialog
+                title="Create New Person"
+                actions={actions}
+                modal={true}
+                open={open}
+            >
+                <NewPersonForm.form onSubmit={(person) => this.props.createPerson({person: person})} {...parameters} />
+            </Dialog>
         );
     }
 }
@@ -38,6 +27,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    personsActions
 )(NewProfile);
 

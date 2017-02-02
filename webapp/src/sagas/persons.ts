@@ -3,7 +3,7 @@ import {call, put} from 'redux-saga/effects';
 import io from 'socket.io-client';
 
 import {getPersonsService} from 'services/persons';
-import {getPersons, addPersons} from '../actions/persons.actions';
+import {getPersons, addPersons, createPerson, } from '../actions/persons.actions';
 
 let _socket: any = {};
 
@@ -12,6 +12,11 @@ export default function* personsSaga(): SagaIterator {
     yield call(subscribe);
     yield call(getPersonsSaga);
     yield takeEvery(getPersons.type, getPersonsSaga);
+    yield takeEvery(createPerson.type, createPersonSaga);
+}
+
+function* createPersonSaga(action) {
+    yield call(console.log, 'hello CREATE PERSON', action.payload.person);
 }
 
 function* getPersonsSaga() {
