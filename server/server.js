@@ -29,6 +29,16 @@ function loadPersons() {
     });
 }
 
+function savePersons() {
+    var objectToSave = {persons: persons};
+    
+    jsonfile.writeFile('./data.json', objectToSave, (err) => {
+        if (err) {
+            console.log('save failed', err);
+        }
+    });
+}
+
 function subscribe(socket) {
     socket.on('getPersons', () => {
         sendPersons(socket);
@@ -41,6 +51,7 @@ function subscribe(socket) {
 
 function addPerson(person) {
     persons.push(person);
+    savePersons();
 }
 
 function sendPersons(socket) {
