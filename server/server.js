@@ -1,6 +1,8 @@
 var socketIO = require('socket.io');
 var jsonfile = require('jsonfile');
 
+var persons = [];
+
 main();
 function main() {
     startServer();
@@ -8,6 +10,9 @@ function main() {
 }
 
 function startServer() {
+    
+    loadPersons();
+    
     console.log('Hello from server');
     const io = socketIO(8090);
 
@@ -18,18 +23,34 @@ function startServer() {
     });
 }
 
+function loadPersons() {
+    jsonfile.readFile('./data.json', (err, obj) => {
+        persons = obj.persons;
+    });
+}
+
 function subscribe(socket) {
     socket.on('getPersons', () => {
         sendPersons(socket);
     });
+
+    socket.on('createPerson', (person) => {
+        addPerson(person);
+    });
+}
+
+function addPerson(person) {
+    persons.push(person);
 }
 
 function sendPersons(socket) {
-    jsonfile.readFile('./data.json', (err, obj) => {
-        console.log('Server sends persons');
-        console.log(obj.persons);
-        socket.emit('persons', obj.persons);
-    });
+    socket.emit('persons', persons);
+    
+    // jsonfile.readFile('./data.json', (err, obj) => {
+    //     console.log('Server sends persons');
+    //     console.log(obj.persons);
+    //     socket.emit('persons', obj.persons);
+    // });
 }
 
 // function getPersons(cb) {

@@ -8,3 +8,7 @@ export function getPersonsService(_socket) {
     _socket.emit('getPersons');
     return promise;
 }
+
+export function createPersonService(_socket, person) {
+    _socket.emit('createPerson', person);
+}
