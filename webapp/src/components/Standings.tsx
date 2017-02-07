@@ -20,19 +20,6 @@ class Standings extends Component {
 
     render() {
 
-        const actions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onClick={this.handleClose}
-            />,
-            <FlatButton
-                label="Create"
-                primary={true}
-                onClick={this.handleClose}
-            />,
-        ];
-
         return (
 
             <div>
@@ -48,7 +35,7 @@ class Standings extends Component {
                         })
                     }
 
-                    <NewPerson open={this.state.isNewPersonButtonClicked} actions={actions} />
+                    <NewPerson open={this.state.isNewPersonButtonClicked} handleClose={this.handleClose} />
 
                 </div>
 

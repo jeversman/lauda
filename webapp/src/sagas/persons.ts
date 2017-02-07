@@ -20,8 +20,6 @@ function* createPersonSaga(action) {
 
     yield call(createPersonService, _socket, action.payload.person);
     yield call(getPersonsSaga);
-
-    // yield call(console.log, 'hello CREATE PERSON', action.payload.person);
 }
 
 function* getPersonsSaga() {
@@ -41,44 +39,3 @@ function subscribe() {
         console.log('Hello received from server, great!');
     });
 }
-
-// import {connectionEstablished} from '../actions/connection.actions';
-//
-// import {deleteNeedlessParameters} from '../utils/profiles';
-//
-
-//
-// export function* getProfiles(): any {
-//     const pgen: PGen.ProfileDBPrx = yield call(getPGen);
-//     let profiles = yield call(pgen.profiles);
-//
-//     for (let key in profiles) {
-//         profiles[key].data = deleteNeedlessParameters(['__address'], profiles[key].data);
-//     }
-//
-//     yield put(addProfiles({profiles}));
-// }
-//
-// export function* createProfileSaga(action): any {
-//     let profileData = new PGen.ProfileData();
-//
-//     for (let key in action.payload.profile) {
-//         profileData[key] = action.payload.profile[key];
-//     }
-//
-//     const pgen: PGen.ProfileDBPrx = yield call(getPGen);
-//     yield call(pgen.set, action.payload.profile.name, profileData);
-//     yield call(getProfiles);
-// }
-//
-// export function* deleteProfileSaga(action): any {
-//     const pgen: PGen.ProfileDBPrx = yield call(getPGen);
-//     yield call(pgen.remove, action.payload.profileName);
-//     yield call(getProfiles);
-// }
-//
-
-// function send(socket) {
-//     console.log('Send update msg');
-//     socket.emit('updatePersons', data);
-// }

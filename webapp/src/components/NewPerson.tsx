@@ -8,13 +8,13 @@ import * as personsActions from 'actions/persons.actions';
 
 class NewProfile extends Component {
     render() {
-        const {open, actions} = this.props;
+        const {open, actions, handleClose} = this.props;
         return (
             <Dialog
                 title="Create New Person"
-                actions={actions}
-                modal={true}
+                modal={false}
                 open={open}
+                onRequestClose={handleClose}
             >
                 <NewPersonForm.form onSubmit={(person) => this.props.createPerson({person: person})} {...parameters} />
             </Dialog>

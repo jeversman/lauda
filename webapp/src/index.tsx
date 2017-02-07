@@ -1,8 +1,8 @@
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-// injectTapEventPlugin();
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
