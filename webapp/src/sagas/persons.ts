@@ -18,7 +18,17 @@ export default function* personsSaga(): SagaIterator {
 function* createPersonSaga(action) {
     console.log('CREATE PERSON SAGA');
 
-    yield call(createPersonService, _socket, action.payload.person);
+    let person = {};
+    person['name'] = action.payload.person.name;
+    let personData = {};
+    for (let key in action.payload.person) {
+        if (key !== 'name') {
+            personData[key] = action.payload.person[key];
+        }
+    }
+    person['data'] = personData;
+
+    yield call(createPersonService, _socket, person);
     yield call(getPersonsSaga);
 }
 

@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {RaisedButton, FlatButton, Dialog} from 'material-ui';
+import {RaisedButton, Card, CardText, CardActions, CardHeader} from 'material-ui';
 
 import {NavigationBar} from './NavigationBar';
 import NewPerson from './NewPerson';
@@ -9,6 +9,10 @@ import * as profileActions from '../actions/persons.actions';
 
 const styles = {
     margin: '15px',
+};
+
+const cardStyles = {
+    width: '30%',
 };
 
 class Standings extends Component {
@@ -30,7 +34,28 @@ class Standings extends Component {
                     {
                         this.props.persons.map((person) => {
                             return (
-                                <span> <b> {person.name} </b> <br/><br/> </span>
+                                <Card style={cardStyles}>
+                                    <CardHeader
+                                        title={person.name}
+                                        actAsExpander={true}
+                                        showExpandableButton={true}
+                                    />
+
+                                    <CardText expandable={true}>
+
+                                        Person parameters: <br/><br/>
+
+                                        {
+                                            Object.keys(person.data).map((key, index) => {
+                                                return (
+                                                    <span key={key}>
+                                                        {key}: <b> {person.data[key]} </b> <br/>
+                                                    </span>
+                                                );
+                                            })
+                                        }
+                                    </CardText>
+                                </Card>
                             );
                         })
                     }
