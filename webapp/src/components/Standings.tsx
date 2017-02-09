@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {RaisedButton, Card, CardText, CardActions, CardHeader} from 'material-ui';
 
 import {NavigationBar} from './NavigationBar';
-import NewPerson from './NewPerson';
+// import NewPerson from './NewPerson';
 import * as profileActions from '../actions/persons.actions';
 
 const styles = {
@@ -17,10 +17,10 @@ const cardStyles = {
 
 class Standings extends Component {
 
-    state = {isNewPersonButtonClicked: false};
+    // state = {isNewPersonButtonClicked: false};
 
-    handleOpen = () => {this.setState({isNewPersonButtonClicked: true}); };
-    handleClose = () => {this.setState({isNewPersonButtonClicked: false}); };
+    // handleOpen = () => {this.setState({isNewPersonButtonClicked: true}); };
+    // handleClose = () => {this.setState({isNewPersonButtonClicked: false}); };
 
     render() {
 
@@ -60,12 +60,6 @@ class Standings extends Component {
                         })
                     }
 
-                    <NewPerson open={this.state.isNewPersonButtonClicked} handleClose={this.handleClose} />
-
-                </div>
-
-                <div>
-                    <RaisedButton label="New" primary={true} onClick={this.handleOpen} />
                 </div>
             </div>
         );

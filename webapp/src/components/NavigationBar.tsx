@@ -1,9 +1,7 @@
 import {Component, PropTypes} from 'react';
 import {AppBar, MenuItem, Drawer} from 'material-ui';
 
-interface NavigationBarProps {
-
-}
+interface NavigationBarProps {}
 
 export class NavigationBar extends Component<NavigationBarProps, {
     open: boolean
@@ -18,13 +16,12 @@ export class NavigationBar extends Component<NavigationBarProps, {
         return (
             <div>
                 <AppBar
-                    title="PGen"
+                    title="LAUDA"
                     onClick={this.toggleDrawer}
                 />
                 <Drawer open={this.state.open}>
-                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'NewProfile')}> New Profile </MenuItem>
-                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'Profiles')}> Profiles </MenuItem>
-                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'Accounts')}> Accounts </MenuItem>
+                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'NewPerson')}> New Person </MenuItem>
+                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'Standings')}> Standings </MenuItem>
                 </Drawer>
             </div>
         );

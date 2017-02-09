@@ -19,7 +19,7 @@ const inputParam = (props) => {
 
 const divStyle = {
     overflow: 'hidden',
-    width: '40%',
+    width: '100%',
 };
 
 
