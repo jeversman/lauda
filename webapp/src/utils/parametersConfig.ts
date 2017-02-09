@@ -1,3 +1,5 @@
+import {comparePersonsByParam} from './persons';
+
 export function createParametersConfig(parameters) {
     let parametersConfig = [];
     let name = {name: 'name', type: 'text', title: 'Name'};
@@ -31,3 +33,15 @@ function changeType(obj): any {
     }
     return obj;
 }
+
+export function addPersonListsToParameters(params, persons) {
+    let newParams = params;
+    
+    newParams.parametersForInput.map(function (param) {
+        let newPersons = persons.slice();
+        param['standings'] = newPersons.sort(comparePersonsByParam(param.fieldName));
+    });
+    
+    return newParams;
+}
+

@@ -4,12 +4,9 @@ import {connect} from 'react-redux';
 import NewPersonForm from './NewPersonForm';
 import {NavigationBar} from './NavigationBar';
 import * as personsActions from 'actions/persons.actions';
+import {addPersonListsToParameters} from 'utils/parametersConfig';
 
-import parameters from 'configs/person.config.json';
-
-const styles = {
-
-};
+import parameters from '../configs/personParams.config.json';
 
 const formStyles = {
     width: '25%',
@@ -17,29 +14,16 @@ const formStyles = {
 };
 
 class NewProfile extends Component {
-    // render() {
-    //     const {open, actions, handleClose} = this.props;
-    //     return (
-    //         <Dialog
-    //             title="Create New Person"
-    //             modal={false}
-    //             open={open}
-    //             onRequestClose={handleClose}
-    //         >
-    //             <div>
-    //                 <NewPersonForm.form onSubmit={(person) => this.props.createPerson({person: person})} {...parameters} />
-    //             </div>
-    //         </Dialog>
-    //     );
-    // }
 
+    parameters = addPersonListsToParameters(parameters, this.props.persons);
+    
     render() {
         return (
-            <div style={styles}>
+            <div>
                 <NavigationBar/>
 
                 <div style={formStyles}>
-                    <NewPersonForm.form onSubmit={(person) => this.props.createPerson({person: person})} {...parameters} />
+                    <NewPersonForm.form onSubmit={(person) => this.props.createPerson({person: person})} {...this.parameters} />
                 </div>
             </div>
         );
@@ -48,7 +32,9 @@ class NewProfile extends Component {
 }
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        persons: state.persons.persons,
+    };
 }
 
 export default connect(

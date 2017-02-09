@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 
 import {getPersonsService, createPersonService} from 'services/persons';
 import {getPersons, addPersons, createPerson, } from '../actions/persons.actions';
+import {compute} from 'utils/persons.ts';
 
 let _socket: any = {};
 
@@ -27,6 +28,8 @@ function* createPersonSaga(action) {
         }
     }
     person['data'] = personData;
+    
+    person = compute(person);
 
     yield call(createPersonService, _socket, person);
     yield call(getPersonsSaga);
