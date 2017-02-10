@@ -22,6 +22,7 @@ export class NavigationBar extends Component<NavigationBarProps, {
                 <Drawer open={this.state.open}>
                     <MenuItem onClick={() => this.handleMenuItemClick(this, 'NewPerson')}> New Person </MenuItem>
                     <MenuItem onClick={() => this.handleMenuItemClick(this, 'Standings')}> Standings </MenuItem>
+                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'PersonsList')}> Persons List </MenuItem>
                 </Drawer>
             </div>
         );
