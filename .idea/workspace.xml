@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c64e406-a646-4f40-9a4c-489dcdd9c310" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/utils/persons.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/webapp/src/configs/person.config.json" afterPath="$PROJECT_DIR$/webapp/src/configs/personParams.config.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/components/PersonsList.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/src/components/PersonsTable.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/data.json" afterPath="$PROJECT_DIR$/server/data.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/components/NewPerson.tsx" afterPath="$PROJECT_DIR$/webapp/src/components/NewPerson.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/components/NewPersonForm.tsx" afterPath="$PROJECT_DIR$/webapp/src/components/NewPersonForm.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/sagas/persons.ts" afterPath="$PROJECT_DIR$/webapp/src/sagas/persons.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts" afterPath="$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/components/App.tsx" afterPath="$PROJECT_DIR$/webapp/src/components/App.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx" afterPath="$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/components/Standings.tsx" afterPath="$PROJECT_DIR$/webapp/src/components/Standings.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/src/configs/personParams.config.json" afterPath="$PROJECT_DIR$/webapp/src/configs/personParams.config.json" />
     </list>
     <ignored path="lauda.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/webapp/src/components/Standings.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="54" selection-end-column="46" />
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -43,24 +43,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parametersConfig.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts">
+      <file leaf-file-name="PersonsList.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapp/src/components/PersonsList.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="544">
+              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="persons.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/sagas/persons.ts">
+      <file leaf-file-name="PersonsTable.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/src/components/PersonsTable.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,28 +68,8 @@
       <file leaf-file-name="persons.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/src/utils/persons.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/data.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personParams.config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/configs/personParams.config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="824">
-              <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+            <state relative-caret-position="34">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -117,18 +97,20 @@
         <option value="$PROJECT_DIR$/webapp/src/index.html" />
         <option value="$PROJECT_DIR$/webapp/src/index.tsx" />
         <option value="$PROJECT_DIR$/webapp/src/reducers/persons.ts" />
-        <option value="$PROJECT_DIR$/webapp/src/components/Standings.tsx" />
-        <option value="$PROJECT_DIR$/webapp/src/components/App.tsx" />
-        <option value="$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx" />
         <option value="$PROJECT_DIR$/webapp/src/configs/person.config.json" />
         <option value="$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts" />
         <option value="$PROJECT_DIR$/webapp/src/configs/parametersForInput.config.json" />
         <option value="$PROJECT_DIR$/webapp/src/components/NewPersonForm.tsx" />
         <option value="$PROJECT_DIR$/webapp/src/components/NewPerson.tsx" />
         <option value="$PROJECT_DIR$/webapp/src/sagas/persons.ts" />
-        <option value="$PROJECT_DIR$/webapp/src/configs/personParams.config.json" />
         <option value="$PROJECT_DIR$/webapp/src/utils/persons.ts" />
         <option value="$PROJECT_DIR$/server/data.json" />
+        <option value="$PROJECT_DIR$/webapp/src/configs/personParams.config.json" />
+        <option value="$PROJECT_DIR$/webapp/src/components/App.tsx" />
+        <option value="$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx" />
+        <option value="$PROJECT_DIR$/webapp/src/components/Standings.tsx" />
+        <option value="$PROJECT_DIR$/webapp/src/components/PersonsTable.tsx" />
+        <option value="$PROJECT_DIR$/webapp/src/components/PersonsList.tsx" />
       </list>
     </option>
   </component>
@@ -987,12 +969,12 @@
       <workItem from="1486450678431" duration="2634000" />
       <workItem from="1486461460880" duration="802000" />
       <workItem from="1486468025676" duration="3965000" />
-      <workItem from="1486537271044" duration="22148000" />
+      <workItem from="1486537271044" duration="38365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69682000" />
+    <option name="totallyTimeSpent" value="85899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1039,20 +1021,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/components/Standings.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1076,7 +1044,7 @@
         <state relative-caret-position="272">
           <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1126,7 +1094,7 @@
         <state relative-caret-position="272">
           <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1341,32 +1309,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/components/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/components/NewPersonForm.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
           <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1379,21 +1327,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts">
+    <entry file="file://$PROJECT_DIR$/server/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/components/Standings.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="54" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1402,32 +1340,80 @@
         <state relative-caret-position="510">
           <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/configs/personParams.config.json">
+    <entry file="file://$PROJECT_DIR$/webapp/src/utils/parametersConfig.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="57" column="15" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+        <state relative-caret-position="680">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="41" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/utils/persons.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/data.json">
+    <entry file="file://$PROJECT_DIR$/webapp/src/configs/personParams.config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="552">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/NavigationBar.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/Standings.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/PersonsTable.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/PersonsList.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

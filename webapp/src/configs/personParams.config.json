@@ -57,5 +57,23 @@
       "external",
       "internal"
     ]
-  }
+  },
+
+  "parametersListForTable": [
+    "general",
+
+    "external",
+    "internal",
+
+    "defense",
+    "offense",
+
+    "block",
+    "steal",
+    "shot",
+    "shot3pt",
+    "speed",
+    "assist",
+    "mind"
+  ]
 }
