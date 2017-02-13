@@ -1,26 +1,33 @@
 import {Component} from 'react';
 import {connect} from 'react-redux';
-import {List, ListItem, IconButton, IconMenu, MenuItem, Paper} from 'material-ui';
+import {Card, CardHeader, CardText, CardActions, FlatButton, } from 'material-ui';
 
 import {NavigationBar} from './NavigationBar';
 import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import * as personsActions from '../actions/persons.actions';
 
-const paperStyles = {
+const containerStyles = {
     width: '30%',
     margin: '0 auto',
 };
 
-const moreIcon = (
-    <MoreHorizIcon color={grey400} />
-);
+const cardStyles = {
+    margin: '15px 0',
+};
 
-const rightIconMenu = (
-    <IconMenu iconButtonElement={moreIcon}>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Edit</MenuItem>
-    </IconMenu>
-);
+// const moreHorizIcon = (
+//     <MoreHorizIcon color={grey400} />
+// );
+//
+// const rightIconMenu = (f) => {
+//     return (
+//         <IconMenu iconButtonElement={moreHorizIcon}>
+//             <MenuItem> Edit </MenuItem>
+//             <MenuItem onClick={f}> Delete </MenuItem>
+//         </IconMenu>
+//     );
+// };
 
 class PersonsList extends Component {
 
@@ -30,13 +37,37 @@ class PersonsList extends Component {
 
                 <NavigationBar/>
 
-                <Paper style={paperStyles}>
-                    <List>
-                        {this.props.persons.map((person, index) => (
-                            <ListItem key={index} primaryText={person.name} rightIcon={rightIconMenu}/>
-                        ))}
-                    </List>
-                </Paper>
+                <div style={containerStyles }>
+                    {this.props.persons.map((person, index) => (
+                        <Card key={person.name} style={cardStyles}>
+                            <CardHeader
+                                title={person.name}
+                                actAsExpander={true}
+                                showExpandableButton={true}
+                            />
+
+                            <CardText expandable={true}>
+
+                                Person parameters: <br/><br/>
+
+                                {Object.keys(person.data).map((key, index) => {
+                                    return (
+                                        <span key={key}>
+                                            {key}: <b> {person.data[key]} </b> <br/>
+                                        </span>
+                                    );
+                                })}
+
+                                <div style={{textAlign: 'right'}}>
+                                    <CardActions>
+                                        <FlatButton label="Edit"/>
+                                        <FlatButton label="Delete" onClick={() => this.props.deletePerson({personName: person.name})}/>
+                                    </CardActions>
+                                </div>
+                            </CardText>
+                        </Card>
+                    ))}
+                </div>
 
             </div>
         );
@@ -50,5 +81,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    personsActions
 )(PersonsList);

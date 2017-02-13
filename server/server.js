@@ -47,6 +47,10 @@ function subscribe(socket) {
     socket.on('createPerson', (person) => {
         addPerson(person);
     });
+
+    socket.on('deletePerson', (personName) => {
+        deletePerson(personName);
+});
 }
 
 function addPerson(person) {
@@ -54,23 +58,16 @@ function addPerson(person) {
     savePersons();
 }
 
-function sendPersons(socket) {
-    socket.emit('persons', persons);
-    
-    // jsonfile.readFile('./data.json', (err, obj) => {
-    //     console.log('Server sends persons');
-    //     console.log(obj.persons);
-    //     socket.emit('persons', obj.persons);
-    // });
+function deletePerson(personName) {
+    persons = persons.filter(function (person) {
+        return person.name !== personName;
+    });
+    savePersons();
 }
 
-// function getPersons(cb) {
-//     var persons = [];
-//     jsonfile.readFile('./data.json', (err, obj) => {
-//         console.log(obj.persons);
-//         // persons = obj.persons;
-//     });
-// }
+function sendPersons(socket) {
+    socket.emit('persons', persons);
+}
 
 function test() {
     getPersons();

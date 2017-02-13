@@ -5,15 +5,15 @@ import {RaisedButton, Card, CardText, CardActions, CardHeader} from 'material-ui
 
 import {NavigationBar} from './NavigationBar';
 import {PersonsTable} from './PersonsTable';
-import * as profileActions from '../actions/persons.actions';
+import * as personsActions from '../actions/persons.actions';
 
 const styles = {
     margin: '15px',
 };
 
-const cardStyles = {
-    width: '30%',
-};
+// const cardStyles = {
+//     width: '30%',
+// };
 
 class Standings extends Component {
 
@@ -38,7 +38,7 @@ function mapStateToProps(state) {
 
 export default connect(
     mapStateToProps,
-    profileActions
+    personsActions
 )(Standings);
 
 

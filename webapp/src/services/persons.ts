@@ -12,3 +12,7 @@ export function getPersonsService(_socket) {
 export function createPersonService(_socket, person) {
     _socket.emit('createPerson', person);
 }
+
+export function deletePersonService(_socket, personName) {
+    _socket.emit('deletePerson', personName);
+}
