@@ -54,6 +54,7 @@ function subscribe(socket) {
 }
 
 function addPerson(person) {
+    deletePerson(person.name);
     persons.push(person);
     savePersons();
 }

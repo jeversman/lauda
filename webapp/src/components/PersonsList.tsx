@@ -1,10 +1,11 @@
-import {Component} from 'react';
+import {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Card, CardHeader, CardText, CardActions, FlatButton, } from 'material-ui';
+import {browserHistory} from 'react-router';
 
 import {NavigationBar} from './NavigationBar';
-import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
-import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+// import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
+// import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 import * as personsActions from '../actions/persons.actions';
 
 const containerStyles = {
@@ -16,20 +17,14 @@ const cardStyles = {
     margin: '15px 0',
 };
 
-// const moreHorizIcon = (
-//     <MoreHorizIcon color={grey400} />
-// );
-//
-// const rightIconMenu = (f) => {
-//     return (
-//         <IconMenu iconButtonElement={moreHorizIcon}>
-//             <MenuItem> Edit </MenuItem>
-//             <MenuItem onClick={f}> Delete </MenuItem>
-//         </IconMenu>
-//     );
-// };
-
 class PersonsList extends Component {
+
+    editPerson(person) {
+        this.context.router.push({
+            pathname: '/NewPerson',
+            state: { person: person },
+        });
+    }
 
     render() {
         return (
@@ -60,7 +55,7 @@ class PersonsList extends Component {
 
                                 <div style={{textAlign: 'right'}}>
                                     <CardActions>
-                                        <FlatButton label="Edit"/>
+                                        <FlatButton label="Edit" onClick={() => this.editPerson(person)}/>
                                         <FlatButton label="Delete" onClick={() => this.props.deletePerson({personName: person.name})}/>
                                     </CardActions>
                                 </div>
@@ -72,6 +67,10 @@ class PersonsList extends Component {
             </div>
         );
     }
+}
+
+PersonsList.contextTypes = {
+    router: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state) {

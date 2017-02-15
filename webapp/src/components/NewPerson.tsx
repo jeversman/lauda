@@ -5,6 +5,7 @@ import NewPersonForm from './NewPersonForm';
 import {NavigationBar} from './NavigationBar';
 import * as personsActions from 'actions/persons.actions';
 import {addPersonListsToParameters} from 'utils/parametersConfig';
+import {createEmptyPerson} from 'utils/persons';
 
 import parameters from '../configs/personParams.config.json';
 
@@ -18,6 +19,9 @@ class NewProfile extends Component {
     parameters = addPersonListsToParameters(parameters, this.props.persons);
     
     render() {
+        let person = (this.props.location.state && this.props.location.state.person) ? this.props.location.state.person : createEmptyPerson();
+        this.props.editPerson({person: person});
+
         return (
             <div>
                 <NavigationBar/>

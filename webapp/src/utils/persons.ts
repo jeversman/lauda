@@ -34,3 +34,17 @@ export function compute(person) {
     console.log('PERSON AFTER COMPUTING', person);
     return person;
 }
+
+export function createEmptyPerson() {
+    let person = {};
+    
+    person['name'] = '';
+    person['data'] = {};
+    
+    let params = config.parametersForInput;
+    params.map((param) => {
+        person.data[param.fieldName] = null;
+    });
+    
+    return person;
+}

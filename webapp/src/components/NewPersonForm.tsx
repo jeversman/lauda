@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {connect} from 'react-redux';
 import {reduxForm, Field} from 'redux-form';
 
 import TextField from 'material-ui/TextField';
@@ -58,8 +59,6 @@ const inputParam = (props) => {
 class NewPersonForm extends Component {
 
     render() {
-        const {handleSubmit} = this.props;
-
         return (
             <form onSubmit={handleSubmit}>
                 <div key={'name'}>
@@ -84,29 +83,14 @@ class NewPersonForm extends Component {
     }
 }
 
-const NewPerson = reduxForm(
+let NewPerson = reduxForm(
     {
         form: 'newProfile',
     }
 )(NewPersonForm);
 
+NewPerson = connect(
+    state => ({initialValues: state.persons.editPerson})
+)(NewPerson)
+
 export default {form: NewPerson};
-
-// <SliderStep name="test" defaultValue={5} min={1} max={10} step={1} style={divStyle} onChange={onChange} />
-// <Field component={sliderStep} name="test" defaultValue={5} min={1} max={10} step={1} style={divStyle} />
-
-// const sliderStep = (props) => {
-//     return (
-//         <div style={props.style} >
-//             <span key={props.name}> {props.name} {props.defaultValue} </span> <br/>
-//             <Slider
-//                 step={props.step}
-//                 value={props.defaultValue}
-//                 min={props.min}
-//                 max={props.max}
-//                 onChange={(event, index, value) => props.onChange(value)}
-//                 {...props}
-//             />
-//         </div>
-//     );
-// };
