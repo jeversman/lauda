@@ -1,6 +1,16 @@
 var socketIO = require('socket.io');
 var jsonfile = require('jsonfile');
 
+var testDataPath = './data.json';
+var nbaPlayersPath = './nbaPlayers.json';
+var grlsPath = './grls.json';
+
+var PATH = grlsPath;
+
+
+
+
+
 var persons = [];
 
 main();
@@ -24,15 +34,25 @@ function startServer() {
 }
 
 function loadPersons() {
-    jsonfile.readFile('./data.json', (err, obj) => {
-        persons = obj.persons;
+    jsonfile.readFile(PATH, (err, obj) => {
+        if (err) {
+            jsonfile.writeFile(PATH, {persons: []}, (err) => {
+                if (err) {
+                    console.log('save failed', err);
+                }
+                loadPersons();
+            });
+        }
+        else {
+            persons = obj.persons;
+        }
     });
 }
 
 function savePersons() {
     var objectToSave = {persons: persons};
     
-    jsonfile.writeFile('./data.json', objectToSave, (err) => {
+    jsonfile.writeFile(PATH, objectToSave, (err) => {
         if (err) {
             console.log('save failed', err);
         }

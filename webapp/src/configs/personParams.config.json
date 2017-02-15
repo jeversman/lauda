@@ -1,79 +1,145 @@
 {
   "parametersForInput": [
     {
-      "fieldName": "block",
+      "fieldName": "глаза",
       "type": "number"
     },
     {
-      "fieldName": "steal",
+      "fieldName": "нос",
       "type": "number"
     },
     {
-      "fieldName": "shot",
+      "fieldName": "рот",
       "type": "number"
     },
     {
-      "fieldName": "shot3pt",
+      "fieldName": "волосы",
       "type": "number"
     },
     {
-      "fieldName": "speed",
+      "fieldName": "форма(гр)",
       "type": "number"
     },
     {
-      "fieldName": "assist",
+      "fieldName": "размер(гр)",
       "type": "number"
     },
     {
-      "fieldName": "mind",
+      "fieldName": "ж",
+      "type": "number"
+    },
+    {
+      "fieldName": "ноги(фиг)",
+      "type": "number"
+    },
+    {
+      "fieldName": "тал(фиг)",
+      "type": "number"
+    },
+    {
+      "fieldName": "рост(фиг)",
+      "type": "number"
+    },
+    {
+      "fieldName": "бедр(фиг)",
+      "type": "number"
+    },
+    {
+      "fieldName": "пл,ру(фиг)",
+      "type": "number"
+    },
+    {
+      "fieldName": "гол,реч",
+      "type": "number"
+    },
+    {
+      "fieldName": "интел",
+      "type": "number"
+    },
+    {
+      "fieldName": "хар",
+      "type": "number"
+    },
+    {
+      "fieldName": "амб",
+      "type": "number"
+    },
+    {
+      "fieldName": "способ",
+      "type": "number"
+    },
+    {
+      "fieldName": "юмор",
+      "type": "number"
+    },
+    {
+      "fieldName": "вкус",
       "type": "number"
     }
   ],
 
   "parametersTree": {
 
-    "defense": [
-      "block",
-      "steal"
+    "лицо": [
+      "глаза",
+      "нос",
+      "рот",
+      "волосы"
     ],
 
-    "offense": [
-      "shot",
-      "shot3pt",
-      "speed",
-      "assist"
+    "гр": [
+      "форма(гр)",
+      "размер(гр)"
     ],
 
-    "external": [
-      "defense",
-      "offense"
+    "фигура": [
+      "ноги(фиг)",
+      "тал(фиг)",
+      "рост(фиг)",
+      "бедр(фиг)",
+      "пл,ру(фиг)"
     ],
 
-    "internal": [
-      "mind"
+    "внешний": [
+      "лицо",
+      "гр",
+      "ж",
+      "фигура",
+      "гол,реч"
     ],
 
-    "general": [
-      "external",
-      "internal"
+    "внутренний": [
+      "интел",
+      "хар",
+      "амб",
+      "способ",
+      "юмор",
+      "вкус"
+    ],
+
+    "Общий": [
+      "внешний",
+      "внутренний"
     ]
   },
 
   "parametersListForTable": [
-    "general",
+    "Общий",
 
-    "external",
-    "internal",
+    "внешний",
+    "внутренний",
 
-    "defense",
-    "offense",
+    "лицо",
+    "гр",
+    "ж",
+    "фигура",
+    "гол,реч",
 
-    "block",
-    "steal",
-    "shot",
-    "shot3pt",
-    "speed",
-    "assist",
-    "mind"
+    "интел",
+    "хар",
+    "амб",
+    "способ",
+    "юмор",
+    "вкус"
   ]
 }

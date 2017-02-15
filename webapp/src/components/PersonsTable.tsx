@@ -27,6 +27,10 @@ const rowColumnStyles = {
     textAlign: 'center',
 };
 
+const nameColumnStyles = {
+    width: '100px',
+};
+
 export class PersonsTable extends Component {
     paramsList = config.parametersListForTable;
 
@@ -53,7 +57,7 @@ export class PersonsTable extends Component {
                 <TableHeader>
                     <TableRow>
                         <TableHeaderColumn></TableHeaderColumn>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
+                        <TableHeaderColumn style={nameColumnStyles}>Name</TableHeaderColumn>
                         {
                             this.paramsList.map((paramName) => (
                                 <TableHeaderColumn style={(this.state.sortHeader === paramName) ? selectedHeaderColumnStyles : headerColumnStyles}>
@@ -74,7 +78,7 @@ export class PersonsTable extends Component {
                         persons.map((person, index) => (
                             <TableRow>
                                 <TableRowColumn>{index+1}</TableRowColumn>
-                                <TableRowColumn>{person.name}</TableRowColumn>
+                                <TableRowColumn style={nameColumnStyles}>{person.name}</TableRowColumn>
                                 {this.paramsList.map((paramName, index) => (
                                         <TableRowColumn key={index} style={(this.state.sortHeader === paramName) ? selectedRowColumnStyles : rowColumnStyles}>
                                             {person.data[paramName]}

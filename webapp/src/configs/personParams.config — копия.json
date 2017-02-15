@@ -1,0 +1,79 @@
+{
+  "parametersForInput": [
+    {
+      "fieldName": "block",
+      "type": "number"
+    },
+    {
+      "fieldName": "steal",
+      "type": "number"
+    },
+    {
+      "fieldName": "shot",
+      "type": "number"
+    },
+    {
+      "fieldName": "shot3pt",
+      "type": "number"
+    },
+    {
+      "fieldName": "speed",
+      "type": "number"
+    },
+    {
+      "fieldName": "assist",
+      "type": "number"
+    },
+    {
+      "fieldName": "mind",
+      "type": "number"
+    }
+  ],
+
+  "parametersTree": {
+
+    "defense": [
+      "block",
+      "steal"
+    ],
+
+    "offense": [
+      "shot",
+      "shot3pt",
+      "speed",
+      "assist"
+    ],
+
+    "external": [
+      "defense",
+      "offense"
+    ],
+
+    "internal": [
+      "mind"
+    ],
+
+    "general": [
+      "external",
+      "internal"
+    ]
+  },
+
+  "parametersListForTable": [
+    "general",
+
+    "external",
+    "internal",
+
+    "defense",
+    "offense",
+
+    "block",
+    "steal",
+    "shot",
+    "shot3pt",
+    "speed",
+    "assist",
+    "mind"
+  ]
+}
