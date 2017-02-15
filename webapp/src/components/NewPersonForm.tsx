@@ -59,6 +59,9 @@ const inputParam = (props) => {
 class NewPersonForm extends Component {
 
     render() {
+
+        const {handleSubmit} = this.props;
+
         return (
             <form onSubmit={handleSubmit}>
                 <div key={'name'}>
