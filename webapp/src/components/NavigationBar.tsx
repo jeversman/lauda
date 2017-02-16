@@ -23,6 +23,7 @@ export class NavigationBar extends Component<NavigationBarProps, {
                     <MenuItem onClick={() => this.handleMenuItemClick(this, 'NewPerson')}> New Person </MenuItem>
                     <MenuItem onClick={() => this.handleMenuItemClick(this, 'Standings')}> Standings </MenuItem>
                     <MenuItem onClick={() => this.handleMenuItemClick(this, 'PersonsList')}> Persons List </MenuItem>
+                    <MenuItem onClick={() => this.handleMenuItemClick(this, 'EditByParams')}> Edit by Params </MenuItem>
                 </Drawer>
             </div>
         );

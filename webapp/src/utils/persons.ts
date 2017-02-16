@@ -1,4 +1,5 @@
-import config from '../configs/personParams.config.json';
+// import config from '../configs/personParams.config.json';
+import config from '../configs';
 
 export function comparePersonsByParam(paramName) {
     return function (person1, person2) {

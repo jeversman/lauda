@@ -7,7 +7,8 @@ import * as personsActions from 'actions/persons.actions';
 import {addPersonListsToParameters} from 'utils/parametersConfig';
 import {createEmptyPerson} from 'utils/persons';
 
-import parameters from '../configs/personParams.config.json';
+// import parameters from '../configs/personParams.config.json';
+import parameters from '../configs';
 
 const formStyles = {
     width: '25%',

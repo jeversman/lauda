@@ -7,7 +7,8 @@ import SortIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 
 import {comparePersonsByParam} from 'utils/persons';
 
-import config from '../configs/personParams.config.json';
+// import config from '../configs/personParams.config.json';
+import config from '../configs';
 
 const selectedHeaderColumnStyles = {
     backgroundColor: '#A9ECF5', //'#292B2B'
