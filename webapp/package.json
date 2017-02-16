@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --hot --progress --watch-poll",
+    "start": "webpack-dev-server --hot --progress --watch",
     "build:development": "NODE_ENV=development webpack",
     "build:production": "NODE_ENV=production webpack",
     "update-slices": "./node_modules/slice2js/bin/slice2js-cli.js --output-dir ./src/slices ice/*.ice"
