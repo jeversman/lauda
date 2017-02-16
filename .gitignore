@@ -1,6 +1,7 @@
 *.awcache
 *.idea
 *.vagrant
+.idea
 
 ice
 node_modules
