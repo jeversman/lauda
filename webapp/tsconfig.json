@@ -16,6 +16,7 @@
       "material-ui/*": ["../node_modules/typed-material-ui/*"]
     }
   },
+  "compileOnSave": false,
   "include": [
     "src/**/*"
   ]

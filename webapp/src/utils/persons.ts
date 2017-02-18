@@ -3,7 +3,7 @@ import config from '../configs';
 
 export function comparePersonsByParam(paramName) {
     return function (person1, person2) {
-        if (Number(person1.data[paramName]) < Number(person2.data[paramName])) {
+        if (Number(person1.data[paramName].replace(',', '.')) < Number(person2.data[paramName].replace(',', '.'))) {
             console.log(1);
             return 1;
         }
@@ -33,14 +33,14 @@ export function compute(person) {
 
 export function createEmptyPerson() {
     let person = {};
-    
+
     person['name'] = '';
     person['data'] = {};
-    
+
     let params = config.parametersForInput;
     params.map((param) => {
         person.data[param.fieldName] = null;
     });
-    
+
     return person;
 }
