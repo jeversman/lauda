@@ -2,6 +2,8 @@ import {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {TextField, Divider, Paper, RaisedButton, } from 'material-ui';
 
+import {comparePersonsByParam} from 'utils/persons';
+
 // import * as personsActions from '../actions/persons.actions';
 // import params from '../configs';
 
@@ -35,6 +37,7 @@ const editParam = (props) => {
                 <TextField
                     floatingLabelText={props.paramName}
                     type={props.type}
+                    onChange={props.onChange}
                     {...props.input}
                     style={textFieldStyles}
                 />
@@ -47,7 +50,8 @@ const editParam = (props) => {
 class EditableListForm extends Component {
 
     render() {
-        const {persons, paramName, handleSubmit} = this.props;
+        let {persons, paramName, handleSubmit} = this.props;
+        persons = persons.sort(comparePersonsByParam(paramName));
         return (
           <div style={containerStyles}>
               <form onSubmit={handleSubmit}>
@@ -55,7 +59,13 @@ class EditableListForm extends Component {
                       {
                           persons.map((person) => {
                               return (
-                                  <Field component={editParam} type="text" name={person.name} person={person} paramName={paramName} />
+                                  <Field
+                                      component={editParam}
+                                      type="text"
+                                      name={person.name}
+                                      person={person}
+                                      paramName={paramName}
+                                  />
                               );
                           })
                       }

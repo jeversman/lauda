@@ -19,10 +19,16 @@ export default function* personsSaga(): SagaIterator {
 }
 
 function* updateAllPersonsSaga(action) {
-  console.log('UPDATE ALL PERSONS SAGA');
+    console.log('UPDATE ALL PERSONS SAGA');
 
-  yield call(updateAllPersonsService, _socket, action.payload.persons);
-  yield call(getPersonsSaga);
+    let persons = action.payload.persons;
+
+    persons.forEach((person) => {
+        person = compute(person);
+    });
+
+    yield call(updateAllPersonsService, _socket, persons);
+    yield call(getPersonsSaga);
 }
 
 function* deletePersonSaga(action) {

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {NavigationBar} from './NavigationBar';
 import EditableList from './EditableList';
 import * as personsActions from '../actions/persons.actions';
-// import params from '../configs';
+import params from '../configs';
 
 const containerStyles = {
     width: '30%',
@@ -17,9 +17,9 @@ const personListStyles = {
 };
 
 class EditByParams extends Component {
-    preparePersonForUpdate(obj) { // FIXME Move to utils?
+    preparePersonForUpdate(obj, paramName) { // FIXME Move to utils?
       this.props.persons.map((person) => {
-        person.data[this.props.location.state.paramName] = obj[person.name];
+        person.data[paramName] = obj[person.name];
       });
       this.props.updateAllPersons({persons: this.props.persons});
     }
@@ -34,7 +34,9 @@ class EditByParams extends Component {
 
     render() {
 
-      const {paramName} = this.props.location.state;
+      const {paramName} = (this.props.location && this.props.location.state) ?
+          this.props.location.state :
+          params.parametersForInput[0].fieldName;
 
       return (
             <div>
@@ -45,7 +47,7 @@ class EditByParams extends Component {
                       <EditableList.form
                         persons={this.props.persons}
                         paramName={paramName}
-                        onSubmit={(obj) => this.preparePersonForUpdate(obj)}
+                        onSubmit={(obj) => this.preparePersonForUpdate(obj, paramName)}
                         initialValues={this.getInitialValues(paramName)}
                       />
                     </div>
