@@ -16,9 +16,6 @@ export function comparePersonsByParam(paramName) {
 
 export function compute(person) {
     let tree = config.parametersTree;
-
-    console.log('COMPUTE');
-
     Object.keys(tree).map((key) => {
         if (Array.isArray(tree[key])) {
             let sum = 0;
@@ -31,8 +28,6 @@ export function compute(person) {
             console.error('IS NOT ARRAY');
         }
     });
-
-    console.log('PERSON AFTER COMPUTING', person);
     return person;
 }
 

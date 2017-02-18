@@ -5,7 +5,7 @@ var testDataPath = './data.json';
 var nbaPlayersPath = './nbaPlayers.json';
 var grlsPath = './grls.json';
 
-var PATH = testDataPath;
+var PATH = grlsPath;
 
 
 

@@ -3,4 +3,5 @@ export function deleteNeedlessParameters(parameters: string[], obj): any {
        delete obj[parameterName];
     });
     return obj;
+
 }

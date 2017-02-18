@@ -52,6 +52,9 @@ class EditableListForm extends Component {
     render() {
         let {persons, paramName, handleSubmit} = this.props;
         persons = persons.sort(comparePersonsByParam(paramName));
+
+        console.log('PERSONS AFTER SORT');
+
         return (
           <div style={containerStyles}>
               <form onSubmit={handleSubmit}>
