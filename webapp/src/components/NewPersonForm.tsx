@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 import {reduxForm, Field} from 'redux-form';
 
 import TextField from 'material-ui/TextField';
-import {RaisedButton, Slider, Card, CardHeader, CardText, Divider, } from 'material-ui';
+import {RaisedButton, Card, CardHeader, CardText, Divider, } from 'material-ui';
 
 const inputStyles = {
     width: '80%',
-    margin: '0 auto'
+    margin: '0 auto',
 };
 
 const buttonStyles = {
@@ -94,6 +94,6 @@ let NewPerson = reduxForm(
 
 NewPerson = connect(
     state => ({initialValues: state.persons.editPerson})
-)(NewPerson)
+)(NewPerson);
 
 export default {form: NewPerson};

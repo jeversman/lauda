@@ -2,8 +2,8 @@ import {SagaIterator, takeEvery} from 'redux-saga';
 import {call, put} from 'redux-saga/effects';
 import io from 'socket.io-client';
 
-import {getPersonsService, createPersonService, deletePersonService} from 'services/persons';
-import {getPersons, addPersons, createPerson, deletePerson, } from '../actions/persons.actions';
+import {getPersonsService, createPersonService, deletePersonService, updateAllPersonsService} from 'services/persons';
+import {getPersons, addPersons, createPerson, deletePerson, updateAllPersons, } from '../actions/persons.actions';
 import {compute} from 'utils/persons.ts';
 
 let _socket: any = {};
@@ -15,6 +15,14 @@ export default function* personsSaga(): SagaIterator {
     yield takeEvery(getPersons.type, getPersonsSaga);
     yield takeEvery(createPerson.type, createPersonSaga);
     yield takeEvery(deletePerson.type, deletePersonSaga);
+    yield takeEvery(updateAllPersons.type, updateAllPersonsSaga);
+}
+
+function* updateAllPersonsSaga(action) {
+  console.log('UPDATE ALL PERSONS SAGA');
+
+  yield call(updateAllPersonsService, _socket, action.payload.persons);
+  yield call(getPersonsSaga);
 }
 
 function* deletePersonSaga(action) {
@@ -35,7 +43,7 @@ function* createPersonSaga(action) {
         }
     }
     person['data'] = personData;
-    
+
     person = compute(person);
 
     yield call(createPersonService, _socket, person);

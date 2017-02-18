@@ -1,11 +1,8 @@
 import {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Card, CardHeader, CardText, CardActions, FlatButton, } from 'material-ui';
-import {browserHistory} from 'react-router';
 
 import {NavigationBar} from './NavigationBar';
-// import MoreHorizIcon from 'material-ui/svg-icons/navigation/more-horiz';
-// import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 import * as personsActions from '../actions/persons.actions';
 
 const containerStyles = {
@@ -29,7 +26,6 @@ class PersonsList extends Component {
     render() {
         return (
             <div>
-
                 <NavigationBar/>
 
                 <div style={containerStyles }>
@@ -71,7 +67,7 @@ class PersonsList extends Component {
 
 PersonsList.contextTypes = {
     router: PropTypes.object.isRequired,
-}
+};
 
 function mapStateToProps(state) {
     return {

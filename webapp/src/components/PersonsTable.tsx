@@ -11,7 +11,7 @@ import {comparePersonsByParam} from 'utils/persons';
 import config from '../configs';
 
 const selectedHeaderColumnStyles = {
-    backgroundColor: '#A9ECF5', //'#292B2B'
+    backgroundColor: '#A9ECF5', // '#292B2B'
     textAlign: 'center',
 };
 
@@ -20,7 +20,7 @@ const headerColumnStyles = {
 };
 
 const selectedRowColumnStyles = {
-    backgroundColor: '#C5F4FA', //'#A3A3A3',
+    backgroundColor: '#C5F4FA', // '#A3A3A3',
     textAlign: 'center',
 };
 
@@ -78,7 +78,7 @@ export class PersonsTable extends Component {
                     {
                         persons.map((person, index) => (
                             <TableRow>
-                                <TableRowColumn>{index+1}</TableRowColumn>
+                                <TableRowColumn>{index + 1}</TableRowColumn>
                                 <TableRowColumn style={nameColumnStyles}>{person.name}</TableRowColumn>
                                 {this.paramsList.map((paramName, index) => (
                                         <TableRowColumn key={index} style={(this.state.sortHeader === paramName) ? selectedRowColumnStyles : rowColumnStyles}>

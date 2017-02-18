@@ -1,21 +1,15 @@
 import {Component} from 'react';
-
-import {Component} from 'react';
 import {connect} from 'react-redux';
-import {DropDownMenu, MenuItem, } from 'material-ui';
 
 import {NavigationBar} from './NavigationBar';
 import EditableList from './EditableList';
 import * as personsActions from '../actions/persons.actions';
-import params from '../configs';
+// import params from '../configs';
 
 const containerStyles = {
     width: '30%',
     margin: '0 auto',
-};
-
-const menuStyles = {
-    margin: '15px 0',
+    textAlign: 'center',
 };
 
 const personListStyles = {
@@ -23,44 +17,39 @@ const personListStyles = {
 };
 
 class EditByParams extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {currParam: 0};
+    preparePersonForUpdate(obj) { // FIXME Move to utils?
+      this.props.persons.map((person) => {
+        person.data[this.props.location.state.paramName] = obj[person.name];
+      });
+      this.props.updateAllPersons({persons: this.props.persons});
     }
 
-    handleChange = (event, index, value) => this.setState({
-        currParam: value
-    });
+    getInitialValues(paramName) {
+      let obj = {};
+      this.props.persons.map((person) => {
+        obj[person.name] = person.data[paramName];
+      });
+      return obj;
+    }
 
     render() {
 
-        return (
-            <div>
+      const {paramName} = this.props.location.state;
 
+      return (
+            <div>
                 <NavigationBar/>
 
                 <div style={containerStyles}>
-
-                    <DropDownMenu
-                        value={this.state.currParam}
-                        onChange={this.handleChange}
-                        openImmediately={true}
-                        style={menuStyles}
-                    >
-                        {
-                            params.parametersForInput.map((param, index) => {
-                                return (<MenuItem value={index} primaryText={param.fieldName}/>)
-                            })
-                        }
-                    </DropDownMenu>
-
                     <div style={personListStyles}>
-                        <EditableList.form persons={this.props.persons} paramName={this.state.currParam} updatePersons={this.props.updatePersons}/>
+                      <EditableList.form
+                        persons={this.props.persons}
+                        paramName={paramName}
+                        onSubmit={(obj) => this.preparePersonForUpdate(obj)}
+                        initialValues={this.getInitialValues(paramName)}
+                      />
                     </div>
-
                 </div>
-
             </div>
         );
     }

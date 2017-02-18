@@ -7,4 +7,4 @@ export const createPerson = factory<{person: any}>('CREATE_PERSON');
 export const getPersons = factory('GET_PERSONS');
 export const addPersons = factory<{persons: any[]}>('ADD_PERSONS');
 export const editPerson = factory<{person: any}>('EDIT_PERSON'); // FIXME method name
-export const updatePersons = factory<{persons: any}>('UPDATE_PERSONS');
+export const updateAllPersons = factory<{persons: any[]}>('UPDATE_ALL_PERSONS');

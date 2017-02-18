@@ -16,3 +16,7 @@ export function createPersonService(_socket, person) {
 export function deletePersonService(_socket, personName) {
     _socket.emit('deletePerson', personName);
 }
+
+export function updateAllPersonsService(_socket, persons) {
+    _socket.emit('updateAllPersons', persons);
+}

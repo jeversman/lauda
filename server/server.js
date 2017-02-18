@@ -20,9 +20,9 @@ function main() {
 }
 
 function startServer() {
-    
+
     loadPersons();
-    
+
     console.log('Hello from server');
     const io = socketIO(8090);
 
@@ -35,23 +35,14 @@ function startServer() {
 
 function loadPersons() {
     jsonfile.readFile(PATH, (err, obj) => {
-        if (err) {
-            jsonfile.writeFile(PATH, {persons: []}, (err) => {
-                if (err) {
-                    console.log('save failed', err);
-                }
-                loadPersons();
-            });
-        }
-        else {
-            persons = obj.persons;
-        }
+        console.log('read file');
+        persons = obj.persons;
     });
 }
 
 function savePersons() {
     var objectToSave = {persons: persons};
-    
+
     jsonfile.writeFile(PATH, objectToSave, (err) => {
         if (err) {
             console.log('save failed', err);
@@ -70,7 +61,17 @@ function subscribe(socket) {
 
     socket.on('deletePerson', (personName) => {
         deletePerson(personName);
-});
+    });
+
+    socket.on('updateAllPersons', (persons) => {
+        updateAllPersons(persons);
+    });
+}
+
+function updateAllPersons(persons) {
+  persons.forEach((person) => {
+    addPerson(person);
+  });
 }
 
 function addPerson(person) {
